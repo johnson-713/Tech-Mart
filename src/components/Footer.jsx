@@ -53,7 +53,7 @@ const categoryData = [
 
 export const Footer = () => {
   return (
-    <div className="px-[200px] flex gap-[80px] py-[80px]">
+    <div className="px-[200px] bg-white flex gap-[80px] py-[80px]">
       <div>
         <p className="text-[18px] font-bold">Swoo - 1st NYC tech online market</p>
         <div>
