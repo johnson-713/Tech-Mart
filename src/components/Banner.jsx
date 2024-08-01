@@ -2,9 +2,9 @@ import { AppContainer } from "./AppContainer";
 
 export const Banner = () => {
   return (
-    <AppContainer className="flex">
-      <div className="bg-[#fff] px-[50px] py-[15px]">
-        <p className="text-red">SALE 40% OFF</p>
+    <AppContainer className="flex gap-[16px] my-[20px]">
+      <div className="bg-[#fff] flex flex-col gap-[14px] w-[300px] rounded-lg px-[50px] py-[15px]">
+        <p className="text-[#FF0000]">SALE 40% OFF</p>
         <p>Latops</p>
         <p>PC & Computers</p>
         <p>Cell phones</p>
@@ -13,10 +13,10 @@ export const Banner = () => {
         <p>Networking</p>
         <p>Cameras</p>
       </div>
-      <div className="flex">
-        <div>
+      <div className="flex gap-[16px]">
+        <div className="flex flex-col gap-[16px]">
           <div className="relative">
-            <img src="/images/slider1.png" alt="" />
+            <img src="/images/slider1.png" className="rounded-lg" alt="" />
             <div className="absolute top-[30px] left-[40px]">
               <p className="text-[30px] text-[#fff] font-bold">
                 Noise Cancelling
@@ -36,9 +36,9 @@ export const Banner = () => {
               </button>
             </div>
           </div>
-          <div>
+          <div className="flex gap-[16px]">
             <div className="relative">
-              <img src="/images/slider2.png" alt="" />
+              <img src="/images/slider2.png" className="rounded-lg" alt="" />
               <div className="absolute top-[20px] left-[20px]">
                 <p className="text-[15px]">Sony playgo 5</p>
                 <p className="text-[15px] whitespace-nowrap flex gap-[10px] mb-[15px]">
@@ -50,7 +50,7 @@ export const Banner = () => {
               </div>
             </div>
             <div className="relative">
-              <img src="/images/slider3.png" alt="" />
+              <img src="/images/slider3.png" className="rounded-lg" alt="" />
               <div className="absolute top-[20px] left-[20px]">
                 <p className="text-[15px] text-[#fff]">Logitek Bluetooth</p>
                 <p className="text-[15px] text-[#FFC107] mb-[15px]">keyboard</p>
@@ -59,13 +59,29 @@ export const Banner = () => {
             </div>
           </div>
         </div>
-        <div>
+        <div className="flex flex-col gap-[16px]">
           <div className="relative">
-            <img src="/images/slider4.png" alt="" />
+            <img src="/images/slider4.png" className="rounded-lg" alt="" />
             <div className="absolute top-[20px] right-[20px]">
               <p className="text-[15px]">XOMIA</p>
-              <p className="text-[16px] w-[80px] mb-[15px]">Sport Water Resistance Watch</p>
-              <button className="bg-[#333333] text-[#fff] rounded-lg px-[16px] py-[8px]">SHOP NOW</button>
+              <p className="text-[16px] w-[80px] mb-[15px]">
+                Sport Water Resistance Watch
+              </p>
+              <button className="bg-[#333333] text-[#fff] rounded-lg px-[16px] py-[8px]">
+                SHOP NOW
+              </button>
+            </div>
+          </div>
+          <div className="relative">
+            <img src="/images/slider5.png" className="rounded-lg" alt="" />
+            <div className="absolute top-[20px] left-[20px]">
+              <p className="text-[15px] text-[#fff]">OKODO</p>
+              <p className="text-[16px] w-[80px] mb-[25px] text-[#fff]">
+                Heo 11+ Black
+              </p>
+              <p className="text-[15px] text-[#fff] whitespace-nowrap">
+                From <p className="text-[#1ABA1A]">$169</p>
+              </p>
             </div>
           </div>
         </div>
