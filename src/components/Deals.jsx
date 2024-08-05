@@ -8,7 +8,7 @@ export const Deals = () => {
         <p className='text-[#fff] m-0'>Deals of the day</p>
         <p className='text-[#fff] m-0'>View All</p>
     </div>
-    <div className='flex gap-[80px] bg-white rounded-xl'>
+    <div className='flex gap-[80px] bg-white rounded-xl p-[20px]'>
         <Slider />
         <div>
             <p>Xioma Redmi Note 11 Pro 256GB 2023, Black
