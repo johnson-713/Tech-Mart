@@ -4,6 +4,7 @@ import { Banner } from "./Banner";
 import { BrandsAndCategories } from "./BrandsAndCategories";
 import { Card } from "./Card";
 import { Deals } from "./Deals";
+import { useNavigate } from "react-router-dom";
 
 const brandsData = [
   {
@@ -68,16 +69,20 @@ const cardData = [
     isFreeShipping: true,
     isFreeGift: true,
     isInStock: true,
+    category: "best",
+    id: 12,
   },
   {
     img: "/images/card1.png",
     title: "BOSO 2 Wireless On Ear Headphone",
     quantity: "(152)",
     actualPrice: "$359.00",
-    discountedPrice: '$200.00',
+    discountedPrice: "$200.00",
     isFreeShipping: true,
     isFreeGift: true,
     isInStock: true,
+    category: "best",
+    id: 11,
   },
   {
     img: "/images/card1.png",
@@ -87,6 +92,8 @@ const cardData = [
     isFreeShipping: true,
     isFreeGift: true,
     isInStock: true,
+    category: "best",
+    id: 10,
   },
   {
     img: "/images/card1.png",
@@ -96,11 +103,114 @@ const cardData = [
     isFreeShipping: true,
     isFreeGift: true,
     isInStock: false,
+    category: "best",
+    id: 9,
+  },
+  {
+    img: "/images/card1.png",
+    title: "Samsung s24",
+    quantity: "(152)",
+    originalPrice: "$359.00",
+    isFreeShipping: true,
+    isFreeGift: true,
+    isInStock: true,
+    category: "new",
+    id: 8,
+  },
+  {
+    img: "/images/card1.png",
+    title: "Samsung s24",
+    quantity: "(152)",
+    actualPrice: "$359.00",
+    discountedPrice: "$200.00",
+    isFreeShipping: true,
+    isFreeGift: true,
+    isInStock: true,
+    category: "new",
+    id: 7,
+  },
+  {
+    img: "/images/card1.png",
+    title: "BOSO 2 Wireless On Ear Headphone",
+    quantity: "(152)",
+    priceRange: "$359.00 - $678.99",
+    isFreeShipping: true,
+    isFreeGift: true,
+    isInStock: true,
+    category: "new",
+    id: 6,
+  },
+  {
+    img: "/images/card1.png",
+    title: "BOSO 2 Wireless On Ear Headphone",
+    quantity: "(152)",
+    originalPrice: "$359.00",
+    isFreeShipping: true,
+    isFreeGift: true,
+    isInStock: false,
+    category: "new",
+    id: 5,
+  },
+  {
+    img: "/images/card1.png",
+    title: "Iphone 15",
+    quantity: "(152)",
+    originalPrice: "$359.00",
+    isFreeShipping: true,
+    isFreeGift: true,
+    isInStock: true,
+    category: "popular",
+    id: 4,
+  },
+  {
+    img: "/images/card1.png",
+    title: "Iphone 15",
+    quantity: "(152)",
+    actualPrice: "$359.00",
+    discountedPrice: "$200.00",
+    isFreeShipping: true,
+    isFreeGift: true,
+    isInStock: true,
+    category: "popular",
+    id: 3,
+  },
+  {
+    img: "/images/card1.png",
+    title: "BOSO 2 Wireless On Ear Headphone",
+    quantity: "(152)",
+    priceRange: "$359.00 - $678.99",
+    isFreeShipping: true,
+    isFreeGift: true,
+    isInStock: true,
+    category: "popular",
+    id: 2,
+  },
+  {
+    img: "/images/card1.png",
+    title: "BOSO 2 Wireless On Ear Headphone",
+    quantity: "(152)",
+    originalPrice: "$359.00",
+    isFreeShipping: true,
+    isFreeGift: true,
+    isInStock: false,
+    category: "popular",
+    id: 1,
   },
 ];
 
 export const Home = () => {
-  const [filter, setFilter] = useState('best')
+  const [filter, setFilter] = useState("best");
+  const navigate = useNavigate();
+
+  const filterData = (category) => {
+    return cardData.filter((item) => item.category === category);
+  };
+
+  const bestData = filterData("best");
+  const newData = filterData("new");
+  const popularData = filterData("popular");
+
+
   return (
     <>
       <Banner />
@@ -122,26 +232,47 @@ export const Home = () => {
       </AppContainer>
       <AppContainer className=" bg-[#fff] rounded-3xl px-[40px] py-[20px]">
         <div className="flex gap-[20px]">
-          <p className={`${filter == 'best' ? 'font-bold underline' : ''}`} onClick={() => setFilter('best')}>Best Seller</p>
-          <p className={`${filter == 'new' ? 'font-bold underline' : ''}`} onClick={() => setFilter('new')}>New IN</p>
-          <p className={`${filter == 'popular' ? 'font-bold underline' : ''}`} onClick={() => setFilter('popular')}>Popular</p>
+          <p
+            className={`${filter == "best" ? "font-bold underline" : ""}`}
+            onClick={() => setFilter("best")}
+          >
+            Best Seller
+          </p>
+          <p
+            className={`${filter == "new" ? "font-bold underline" : ""}`}
+            onClick={() => setFilter("new")}
+          >
+            New IN
+          </p>
+          <p
+            className={`${filter == "popular" ? "font-bold underline" : ""}`}
+            onClick={() => setFilter("popular")}
+          >
+            Popular
+          </p>
         </div>
         <div className="flex gap-[20px]">
-        {cardData.map((i, ind) => (
-          <Card
-            key={ind}
-            img={i.img}
-            originalPrice={i.originalPrice}
-            title={i.title}
-            quantity={i.quantity}
-            isFreeGift={i.isFreeGift}
-            isFreeShipping={i.isFreeShipping}
-            isInStock={i.isInStock}
-            priceRange={i.priceRange}
-            actualPrice={i.actualPrice}
-            discountedPrice={i.discountedPrice}
-          />
-        ))}
+          {(filter === "best"
+            ? bestData
+            : filter === "new"
+            ? newData
+            : popularData
+          ).map((i, ind) => (
+            <Card
+              key={ind}
+              img={i.img}
+              originalPrice={i.originalPrice}
+              title={i.title}
+              quantity={i.quantity}
+              isFreeGift={i.isFreeGift}
+              isFreeShipping={i.isFreeShipping}
+              isInStock={i.isInStock}
+              priceRange={i.priceRange}
+              actualPrice={i.actualPrice}
+              discountedPrice={i.discountedPrice}
+              handleclick={() => navigate(`/product/${i.id}`)}
+            />
+          ))}
         </div>
       </AppContainer>
     </>

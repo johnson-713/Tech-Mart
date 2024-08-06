@@ -11,10 +11,11 @@ export const Card = ({
   isFreeShipping,
   isFreeGift,
   isInStock,
+  handleclick,
 }) => {
   return (
-    <div className="max-w-[250px] flex flex-col gap-[10px]">
-      <img src={img} alt="" />
+    <div className="max-w-[250px] cursor-pointer flex flex-col gap-[10px]">
+      <img src={img} alt="" width={200} />
       {quantity && <p className="m-0">{quantity}</p>}
       <p className="m-0 font-bold">{title}</p>
       {originalPrice && <p className="m-0">{originalPrice}</p>}
@@ -50,6 +51,7 @@ export const Card = ({
           <p className="m-0">Out of stock</p>
         </div>
       )}
+      <button onClick={handleclick}>View Details</button>
     </div>
   );
 };
