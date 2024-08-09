@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { RegisterLoginForm } from "./components/RegisterLoginForm";
 import { AppContainer } from "./components/AppContainer";
 import { Home } from "./components/Home";
+import { Product } from "./components/Product";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<RegisterLoginForm />} />
           <Route path="/login" element={<RegisterLoginForm isLogin />} />
+          <Route path={`/product/:id`} element={<Product />} />
         </Routes>
       </Router>
       <Footer />
