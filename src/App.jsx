@@ -6,6 +6,7 @@ import { RegisterLoginForm } from "./components/RegisterLoginForm";
 import { AppContainer } from "./components/AppContainer";
 import { Home } from "./components/Home";
 import { Product } from "./components/Product";
+import { Cart } from "./components/Cart";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/register" element={<RegisterLoginForm />} />
           <Route path="/login" element={<RegisterLoginForm isLogin />} />
           <Route path={`/product/:id`} element={<Product />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       </Router>
       <Footer />
